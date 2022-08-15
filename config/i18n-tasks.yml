@@ -1,0 +1,117 @@
+# ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
+
+base_locale: en
+
+## All available locales. This is inferred from the data normally.
+# locales: [es, fr]
+
+# Read and write translations.
+data:
+  # Locale files or `File.find` patterns where translations are read from:
+  read:
+    ## Default:
+    - config/locales/%{locale}.yml
+    ## More files (e.g. include Devise translations):
+    - config/locales/**/*.%{locale}.yml
+    ## ShinyCMS plugins
+    - plugins/Shiny*/config/locales/%{locale}.yml
+
+  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
+  # router: conservative_router
+
+# Find translate calls
+search:
+  ## Paths or `File.find` patterns to search in:
+  paths:
+    - app/
+    - spec/
+    - plugins/
+
+  ## Root directories for relative keys resolution.
+  relative_roots:
+    # Check for usage in the plugin views and controllers
+    <% plugin_names = Dir[ 'plugins/*' ].sort.collect { |plugin_name| plugin_name.sub( 'plugins/', '' ) } %>
+    <% plugin_names.each do |plugin_name| %>
+    - <%= "plugins/#{plugin_name}/app/controllers" %>
+    - <%= "plugins/#{plugin_name}/app/views" %>
+    <% end %>
+
+  ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
+  ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
+  # exclude:
+  #  - app/assets/images
+
+  ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
+  ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
+  only: [ '*.rb', '*.html.erb', '*.html.mjml' ]
+
+  ## If `strict` is `false`, guess usages such as t("categories.#{category}.title"). The default is `true`.
+  # strict: false
+
+  ## Multiple scanners can be used. Their results are merged.
+  ## The options specified above are passed down to each scanner. Per-scanner options can be specified as well.
+  ## See this example of a custom scanner: https://github.com/glebm/i18n-tasks/wiki/A-custom-scanner-example
+
+## Translation Services
+# translation:
+#   # Google Translate
+#   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
+#   google_translate_api_key: "AbC-dEf5"
+#   # DeepL Pro Translate
+#   # Get an API key and subscription at https://www.deepl.com/pro to use DeepL Pro
+#   deepl_api_key: "48E92789-57A3-466A-9959-1A1A1A1A1A1A"
+
+## Do not consider these keys missing:
+ignore_missing:
+  - devise.*
+  - errors.messages.not_saved
+  # jQuery
+  - date.month_names
+#  - error
+# - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
+# - '{devise,simple_form}.*'
+
+## Consider these keys used:
+ignore_unused:
+  - shinycms.admin.elements.{html,image,long_text,short_text}
+  - shinycms.errors.messages.*
+#  - devise.*
+# - '{devise,kaminari,will_paginate}.*'
+# - 'activerecord.attributes.*'
+# - 'simple_form.{yes,no}'
+# - 'simple_form.{placeholders,hints,labels}.*'
+# - 'simple_form.{error_notification,required}.:'
+
+## Exclude these keys from the `i18n-tasks eq-base' report:
+# ignore_eq_base:
+#   all:
+#     - common.ok
+#   fr,es:
+#     - common.brand
+
+## Exclude these keys from the `i18n-tasks check-consistent-interpolations` report:
+# ignore_inconsistent_interpolations:
+# - 'activerecord.attributes.*'
+
+## Ignore these keys completely:
+# ignore:
+#  - kaminari.*
+
+## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
+## e.g. in case of a relative key defined in a helper method.
+## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
+#
+# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#       only: %w(*.html.haml *.html.slim),
+#       patterns: [['= title\b', '.page_title']] %>
+#
+# The PatternMapper can also match key literals via a special %{key} interpolation, e.g.:
+#
+# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#       patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>

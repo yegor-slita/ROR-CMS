@@ -1,0 +1,115 @@
+# ShinyPages plugin for ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# English locale strings for ShinyCMS features provided by the ShinyPages plugin
+
+en:
+  shinycms:
+    feature_flags:
+      pages: Pages
+
+    settings:
+      default_page: Default page
+      default_section: Default section
+
+    capability:
+      category:
+        pages: Pages
+        page_sections: Page Sections
+        page_templates: Page Templates
+
+    models:
+      names:
+        shiny_pages_template: template
+
+  shiny_pages:
+    admin:
+      pages:
+        breadcrumb: Pages
+        menu: Pages
+        toolbar: Pages
+        index:
+          title: List pages
+          # search: Search pages and sections
+        new:
+          title: Add new page
+        edit:
+          title: Edit page
+          new_element_name: New element name
+          new_element_content: Default content
+        create:
+          title: Add new page
+          success: New page added
+          failure: Failed to add new page
+        update:
+          title: Edit page
+          success: Page details updated
+          failure: Failed to update page details
+        destroy:
+          success: Page deleted
+        elements:
+          create:
+            success: New element added
+          destroy:
+            success: Element deleted
+
+      sections:
+        breadcrumb: Pages
+        toolbar: Sections
+        new:
+          title: Add new section
+        edit:
+          title: Edit section
+        create:
+          title: Add new section
+          success: New section added
+          failure: Failed to add new section
+        update:
+          title: Edit section
+          success: Section details updated
+          failure: Failed to update section details
+        destroy:
+          success: Section deleted
+          failure: Failed to section page
+
+      templates:
+        breadcrumb: Page templates
+        toolbar: Templates
+        index:
+          title: List templates
+          search: Search templates
+        search:
+          title: List templates
+        new:
+          title: Add new template
+        create:
+          title: Add new template
+          success: New template added
+          failure: Failed to add new template
+        edit:
+          title: Edit template
+          new_element_name: New element name
+          new_element_content: Default content
+        elements:
+          create:
+            success: New element added
+          destroy:
+            success: Element deleted
+        update:
+          title: Edit template
+          success: Template details updated
+          failure: Failed to update template details
+        destroy:
+          success: Template deleted
+          failure: Failed to delete template
+
+    page:
+      template_file_missing: 'Unable to display page; its template file is missing.'
+
+  models:
+    shiny_pages:
+      template:
+        template_file_must_exist: 'Template file must be in themes/{theme-name}/shiny_pages/pages'

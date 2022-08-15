@@ -1,0 +1,67 @@
+# ShinyForms plugin for ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# English locale strings for ShinyCMS features provided by the ShinyForms plugin
+
+en:
+  shinycms:
+    feature_flags:
+      shiny_forms: Form handlers
+      shiny_forms_emails: Form handlers can send emails
+      recaptcha_for_forms: Protect ShinyForms with reCAPTCHA
+      akismet_for_forms: Detect spammy ShinyForm submissions with Akismet
+
+    settings:
+      recaptcha_score_for_forms: Minimum reCAPTCHA v3 score for ShinyForm submissions
+
+    models:
+      names:
+        shiny_forms_form: form
+
+  shiny_forms:
+    forms:
+      process_form:
+        success: Your form submission was successful
+        failure: Form submission failed
+        form_not_found: Form handler not found
+
+    admin:
+      forms:
+        breadcrumb: Forms
+        menu: Forms
+        toolbar: Forms
+        handlers:
+          send_plain_email: Send plain text email
+          send_html_email: Send HTML email
+        index:
+          title: List form handlers
+          search: Search form handlers
+        search:
+          title: List form handlers
+        new:
+          title: Add form handler
+        edit:
+          title: Edit form handler
+        create:
+          title: Add form handler
+          success: New form handler created
+          failure: Failed to create new form handler
+        update:
+          title: Edit form handler
+          success: Form handler updated
+          failure: Failed to update form handler
+        destroy:
+          success: Form handler deleted
+        set_form:
+          not_found: Form handler not found
+
+    mailers:
+      form_mailer:
+        default_subject: 'Form data from %{site_name}'
+
+    models:
+      forms:
+        template_file_must_exist: The template file must exist

@@ -1,0 +1,68 @@
+# ShinyNews plugin for ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# English locale strings for ShinyCMS features provided by the ShinyNews plugin
+
+en:
+  shinycms:
+    feature_flags:
+      news: News section
+      news_upvotes: Up-votes on news posts
+      news_downvotes: Down-votes on news posts
+
+    capability:
+      category:
+        news_posts: News
+
+      news_posts:
+        change_author: Change author
+
+    models:
+      names:
+        shiny_news_post: news post
+
+  shiny_news:
+    menu:
+      title: News
+    profile:
+      content:
+        title: Recent news posts
+    news:
+      index:
+        title: Recent news
+        view_post: View post
+        read_more: Read more
+      show:
+        reply: Reply to this post
+      sidebar:
+        links: Links
+        links_blurb: Recommended reading from around the web
+        recent_posts: Recent Posts
+
+    admin:
+      news_posts:
+        breadcrumb: News
+        menu: News
+        toolbar: News posts
+        index:
+          title: List news posts
+          search: Search news posts
+        search:
+          title: List news posts
+        new:
+          title: Add news post
+        edit:
+          title: Edit news post
+        create:
+          title: Add news post
+          success: News post created
+          failure: Failed to create news post
+        update:
+          title: Edit news post
+          success: News post updated
+          failure: Failed to update news post
+        destroy:
+          success: News post deleted

@@ -1,0 +1,17 @@
+no_browser: true
+threshold_score: 1
+paths:
+  - plugins/ShinyCMS/app
+  - app
+  - lib/generators/shiny
+  - plugins/ShinyAccess/app
+  - plugins/ShinyBlog/app
+  - plugins/ShinyForms/app
+  - plugins/ShinyInserts/app
+  - plugins/ShinyLists/app
+  - plugins/ShinyNews/app
+  - plugins/ShinyNewsletters/app
+  - plugins/ShinyPages/app
+  - plugins/ShinyProfiles/app
+  - plugins/ShinySearch/app
+  - plugins/ShinySEO/app

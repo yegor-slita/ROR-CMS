@@ -1,0 +1,112 @@
+/* ShinyCMS ~ https://shinycms.org
+ *
+ * Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+ *
+ * ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+ * Default styles for main (user-facing) website */
+
+/* ========== ( global/layout styles ) ========== */
+
+body {
+  font-family:  'Poppins', sans-serif;
+  font-size:    12pt;
+  margin:       0;
+}
+
+.alerts {
+  background:   #ffdddd;
+  padding:      0.5em;
+}
+
+.notices {
+  background:   #ddffdd;
+  padding:      0.5em;
+}
+
+.top-nav {
+  border-bottom:  1px solid #dddddd;
+  padding:        0.5em;
+}
+
+.top-nav ul {
+  padding-left:     0;
+}
+
+.top-nav li {
+  display:          inline;
+  list-style-type:  none;
+  padding:          0.2em;
+}
+
+.main {
+  padding:      0.5em;
+}
+
+.footer {
+  border-top:   #dddddd solid 1px;
+  font-size:    0.8em;
+  padding:      0.5em;
+  text-align:   center;
+}
+
+
+/* ===== ( styles for tag clouds ) ===== */
+
+.tagsize1 { font-size: 1.0em; }
+.tagsize2 { font-size: 1.2em; }
+.tagsize3 { font-size: 1.4em; }
+.tagsize4 { font-size: 1.6em; }
+
+
+/* ========== ( user profiles ) ========== */
+
+.user-icon {
+  border-radius:        3px;
+  max-width:            200px;
+}
+
+.user-profile-pic {
+  border-radius:        5px;
+  float:                right;
+  max-width:            400px;
+}
+
+.user-profile-content {
+  display:              none;
+}
+
+.no-border {
+  background: none;
+  border: none;
+}
+
+
+/* ========== ( utility styles ) ========== */
+
+.right {
+  text-align:   right;
+}
+
+.smaller {
+  font-size:    smaller;
+}
+
+.float-right {
+  float:        right;
+}
+
+.clear-both {
+  clear:        both;
+}
+
+.a11y-hidden {
+  border:       0;
+  clip:         rect( 0 0 0 0 );
+  height:       1px;
+  margin:       -1px;
+  overflow:     hidden;
+  padding:      0;
+  position:     absolute;
+  width:        1px;
+}

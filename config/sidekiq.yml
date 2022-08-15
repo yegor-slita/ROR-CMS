@@ -1,0 +1,24 @@
+# ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# Sidekiq configuration (for ActiveJob including Mailers)
+
+# NB: to pick up ENV settings in dev, you must run Sidekiq via dotenv; see /tools/sidekiq-dev
+---
+:concurrency: <%= ENV.fetch( 'SIDEKIQ_CONCURRENCY' ) { 1 } %>
+:max_retries: <%= ENV.fetch( 'SIDEKIQ_MAX_RETRIES' ) { 3 } %>
+:timeout: <%=     ENV.fetch( 'SIDEKIQ_TIMEOUT'     ) { 8 } %>
+
+:verbose: <%= ENV.fetch( 'SIDEKIQ_VERBOSE' ) { false } %>
+:strict: <%=  ENV.fetch( 'SIDEKIQ_STRICT'  ) { false } %>
+
+<% prefix = ENV.fetch( 'SIDEKIQ_PREFIX' ) { '' } %>
+<% prefix = "#{prefix}_" unless prefix == '' %>
+:queues:
+  - <%= prefix %>default
+  - <%= prefix %>mailers
+  - <%= prefix %>active_storage_analysis
+  - <%= prefix %>active_storage_purge

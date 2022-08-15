@@ -1,0 +1,59 @@
+# ShinyAccess plugin for ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# English locale strings for ShinyCMS features provided by the ShinyAccess plugin
+
+en:
+  shinycms:
+    feature_flags:
+      access: Access Control
+
+    models:
+      names:
+        shiny_access_group: access group
+        shiny_access_membership: access group membership
+
+  shiny_access:
+    admin:
+      menu: Access
+      groups:
+        breadcrumb: Access
+        index:
+          title: Access Groups
+          search: Search groups
+        search:
+          title: Access Groups
+        new:
+          title: New access group
+        edit:
+          title: Edit access group
+        create:
+          title: New access group
+          success: Access group created
+          failure: Failed to create group
+        update:
+          title: Edit access group
+          success: Access group updated
+          failure: Failed to update group
+        destroy:
+          success: Access group deleted
+      memberships:
+        breadcrumb: Access
+        index:
+          title: Memberships for '%{name}'
+          search: Search memberships
+          member: Member
+          from: From
+          to: To
+          cancel: Cancel
+          add_member: Add new member
+          username: Username
+        create:
+          success: New member added
+          failure: Failed to add new member
+        destroy:
+          success: Membership cancelled
+          failure: Failed to cancel membership

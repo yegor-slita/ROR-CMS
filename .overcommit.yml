@@ -1,0 +1,56 @@
+# ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2020 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# Use this file to configure the Overcommit hooks you wish to use.
+# This will extend the default configuration defined in:
+# https://github.com/sds/overcommit/blob/master/config/default.yml
+#
+# For a complete list of hooks, see:
+# https://github.com/sds/overcommit/tree/master/lib/overcommit/hook
+#
+# For a complete list of options that you can use to customize hooks, see:
+# https://github.com/sds/overcommit#configuration
+
+PreCommit:
+  CaseConflicts:
+    enabled: false
+  Brakeman:
+    enabled: true
+    quiet: false
+  RuboCop:
+    enabled: true
+    quiet: false
+    on_warn: fail
+  TextWidth:
+    enabled: true
+    quiet: false
+    max_subject_width: 72
+    min_subject_width: 3
+  TrailingWhitespace:
+    enabled: true
+    quiet: false
+    exclude:
+      - '**/*.md'
+
+PrePush:
+  RailsSchemaUpToDate:
+    enabled: true
+    quiet: false
+  RSpec:
+    enabled: true
+    quiet: false
+  BundleAudit:
+    enabled: true
+    quiet: false
+  Fasterer:
+    enabled: false
+    quiet: false
+
+PostMerge:
+  RuboCop:
+    enabled: true
+    quiet: false
+    on_warn: fail

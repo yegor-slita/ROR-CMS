@@ -1,0 +1,49 @@
+# ShinyCMS ~ https://shinycms.org
+#
+# Copyright 2009-2021 Denny de la Haye ~ https://denny.me
+#
+# ShinyCMS is free software; you can redistribute it and/or modify it under the terms of the GPL (version 2 or later)
+
+# Database Config
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+
+
+development:
+  <<: *default
+  database: shinycms_development
+
+  # Minimum log levels, in increasing order:
+  #   debug5, debug4, debug3, debug2, debug1,
+  #   log, notice, warning, error, fatal, and panic
+  # Defaults to warning.
+  #min_messages: debug1
+
+
+# Warning: The database defined as 'test' will be erased and rebuilt each time
+# you run `rspec`. Do not set this db to the same as development or production.
+
+test:
+  <<: *default
+  database: shinycms_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+
+# For security reasons, you should never put your production database details,
+# particularly the password, in this file (or anywhere else in your source code)
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for how to pass these details to your app via environment variables instead.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
+#
+#   DATABASE_URL="postgres://shinyuser:shinypass@localhost/shinycms"
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
